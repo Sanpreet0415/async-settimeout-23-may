@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asynchronous JavaScript: The Event Loop Unreve 23 may</title>
+  </head>
+  <body>
+    <p>23 may class see the foreach , filter example</p>
+
+    <p>time pause reset start</p>
+
+    <h2 id="time"></h2>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+    <button id="reset">reset</button>
+  </body>
+  <script>
+    // var a = 1;
+    // varb = 2;
+    // var sum = function (a, b) {
+    //   var c = 40;
+    //   return a - b - c;
+    // };
+    // console.log(sum());
+
+    //   settimeout   => take a block code
+
+    // function sum2() {
+    //   console.log(1 + 2);
+    // }
+
+    // setTimeout(() => {
+    //   sum2();
+    // }, 2000);
+
+    // setTimeout(() => {
+    //   alert("hii i am working");
+    // }, 5000);
+
+    //   setinterval()    = >  evey time it keep repeting when the times end i keep repete it show message
+
+    // setInterval(()=>{
+    //     alert("subscribe me")
+    // },5000)
+
+    //   clock time pause and reset  assigment
+
+    let tim = 0;
+    let passedtime=0;
+
+    let t = document.getElementById("time");
+    let s = document.getElementById("start");
+    let st = document.getElementById("stop");
+    let r= document.getElementById("reset");
+    t.textContent = tim;
+
+    function handlestart(cond) {
+      if (cond === "start") {
+        id = setInterval(() => {
+          tim++;
+          t.textContent = tim;
+        }, 100);
+      }else if(cond==="stop"){
+        passedtime=tim;
+        clearInterval(id)
+        tim=passedtime
+      }
+    }
+    function reset(){
+        tim=0;
+        t.textContent =0
+    }
+
+    s.addEventListener("click", () => {
+      handlestart("start");
+    });
+    st.addEventListener("click", () => {
+      handlestart("stop");
+    });
+    r.addEventListener("click",reset)
+
+    // let arr = [1, 2, 3, 4, 56, 4];
+    // let od = [];
+    // let odd = arr.filter((ele) => ele % 2 !== 0);
+    // console.log(odd);
+    // arr.forEach((ele) => {
+    //   if (ele % 2 === 0) {
+    //     od.push(ele);
+    //   }
+    // });
+    // console.log(od);
+
+    // let oddNumbers = arr.reduce((accumulator, num) => {
+    //   if (num % 2 !== 0) {
+    //     accumulator.push(num);
+    //   }
+    //   return accumulator;
+    // }, []);
+
+    // console.log(oddNumbers); // Output: [1, 3]
+  </script>
+</html>
